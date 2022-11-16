@@ -1,0 +1,343 @@
+﻿<UserControl x:Class="PalletScanAndPrint.Views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PalletScanAndPrint.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920">
+    <Grid Background="Black" Height="1080" Width="1920">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="88*"/>
+            <RowDefinition Height="84*"/>
+            <RowDefinition Height="168*"/>
+            <RowDefinition Height="84*"/>
+            <RowDefinition Height="84*"/>
+            <RowDefinition Height="168*"/>
+            <RowDefinition Height="84*"/>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="168*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="48*"/>
+            <ColumnDefinition Width="83*"/>
+            <ColumnDefinition Width="237*"/>
+            <ColumnDefinition Width="16*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <!--Timer-->
+        <TextBlock Grid.Row="1"
+                   Grid.Column="1"
+                   Background="Black" 
+                   Foreground="Green" 
+                   FontSize="44"
+                   FontWeight="Bold"
+                   Text="Setare Contor"
+                   VerticalAlignment="Center"/>
+        <Border Grid.Row="1"
+                Grid.Column="2"
+                BorderBrush="Blue"
+                BorderThickness="3,1.5,3,1.5"
+                Margin="0,0,1100,0">
+            <TextBox Text="{Binding CountdownTimer, UpdateSourceTrigger=PropertyChanged}"
+                     Background="Black"
+                     Foreground="LimeGreen"
+                     FontSize="50"
+                     MaxLength="2"
+                     BorderThickness="0"
+                     TextAlignment="Center"
+                     Margin="5,5,5,5"/>
+            <Border.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Border.Resources>
+        </Border>
+
+
+        <!--ConnectionString-->
+        <TextBlock Grid.Row="2"
+                   Grid.Column="1"
+                   Background="Black"
+                   Foreground="Green"
+                   FontSize="44"
+                   FontWeight="Bold"
+                   VerticalAlignment="Center"
+                   Text="Text de conexiune"/>
+        
+        <Border Grid.Row="2"
+                Grid.Column="2"
+                BorderBrush="Blue"
+                BorderThickness="3,1.5,3,1.5">
+            <TextBox Text="{Binding ConnectionString, UpdateSourceTrigger=PropertyChanged}"
+                     Background="Black"
+                     Foreground="LimeGreen"
+                     FontSize="26"
+                     MaxLength="200"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Center"
+                     BorderThickness="0"
+                     Margin="5,5,5,5"/>
+            <Border.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Border.Resources>
+        </Border>
+        <!--DevConnectionStringButton(for testing purposes)-->
+        <Button Grid.Row="2"
+                Grid.Column="3"
+                Click="Dev_Str_Click"
+                Content="Dev"
+                Background="Green"
+                FontSize="30"
+                Margin="6,6,6,96">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <!--UserConnectionStringButton(for testing purposes)-->
+        <Button Grid.Row="2"
+                Grid.Column="3"
+                Click="User_Str_Click"
+                Content="User"
+                Background="Green"
+                FontSize="30"
+                Margin="6,96,6,6">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        
+        <!--PrinterIp-->
+        <TextBlock Grid.Row="3"
+                   Grid.Column="1"
+                   Background="Black"
+                   Foreground="Green"
+                   FontSize="44"
+                   FontWeight="Bold"
+                   Text="IP Printer"
+                   VerticalAlignment="Center"/>
+        
+        <Border Grid.Row="3"
+                Grid.Column="2"
+                BorderBrush="Blue"
+                BorderThickness="3,1.5,3,1.5"
+                Margin="0,0,600,0">
+            <TextBox Text="{Binding PrinterIP, UpdateSourceTrigger=PropertyChanged}"
+                     Background="Black"
+                     Foreground="LimeGreen"
+                     FontSize="30"
+                     MaxLength="32"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Center"
+                     BorderBrush="Black"
+                     BorderThickness="0"
+                     Margin="5,5,5,5"/>
+            <Border.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Border.Resources>
+        </Border>
+
+        
+        <!--PrinterPort-->
+        <TextBlock Grid.Row="4"
+                   Grid.Column="1"
+                   Background="Black"
+                   Foreground="Green"
+                   FontSize="44"
+                   FontWeight="Bold"
+                   Text="Port Printer"
+                   VerticalAlignment="Center"/>
+        <Border Grid.Row="4"
+                Grid.Column="2"
+                BorderBrush="Blue"
+                BorderThickness="3,1.5,3,1.5"
+                Margin="0,0,900,0">
+            <TextBox Text="{Binding PrinterPort, UpdateSourceTrigger=PropertyChanged}"
+                     Background="Black"
+                     Foreground="LimeGreen"
+                     FontSize="30"
+                     MaxLength="16"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Center"
+                     BorderBrush="Black"
+                     BorderThickness="0"
+                     Margin="5,5,5,5"/>
+            <Border.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Border.Resources>
+        </Border>
+
+        
+        <!--SettingsSavePath-->
+        <TextBlock Grid.Row="5"
+                   Grid.Column="1"
+                   Background="Black"
+                   Foreground="Green"
+                   FontSize="40"
+                   FontWeight="Bold"
+                   Text="Folder salvare setari"
+                   VerticalAlignment="Center"/>
+        
+        <Border Grid.Row="5"
+                Grid.Column="2"
+                BorderBrush="Blue"
+                BorderThickness="3,1.5,3,1.5">
+            <TextBox Text="{Binding SettingsFolderPath, UpdateSourceTrigger=PropertyChanged}"
+                     Background="Black"
+                     Foreground="LimeGreen"
+                     FontSize="30"
+                     MaxLength="200"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Center"
+                     BorderBrush="Black"
+                     BorderThickness="0"
+                     Margin="5,5,5,5"/>
+            <Border.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Border.Resources>
+        </Border>
+        
+
+        <!--LabelsToPrint-->
+        <TextBlock Grid.Row="6"
+                   Grid.Column="1"
+                   Background="Black"
+                   Foreground="Green"
+                   FontSize="44"
+                   FontWeight="Bold"
+                   Text="Etichete de printat"
+                   VerticalAlignment="Center"/>
+        
+        <Border Grid.Row="6"
+                Grid.Column="2"
+                BorderBrush="Blue"
+                BorderThickness="0"
+                Margin="60,0,1040,0">
+
+            <Viewbox  ToolTip="">
+                <CheckBox Content="Automat"
+                          Foreground="Black"
+                          IsChecked="{Binding PrintLabel1}"
+                          Width="20"/>
+            </Viewbox>
+
+        </Border>
+        
+        <Border Grid.Row="6"
+                Grid.Column="2"
+                BorderBrush="Blue"
+                BorderThickness="0"
+                Margin="360,0,740,0">
+
+            <Viewbox  ToolTip="">
+                <CheckBox Content="Automat"
+                          Foreground="Black"
+                          IsChecked="{Binding PrintLabel2}"
+                          Width="20"/>
+            </Viewbox>
+
+        </Border>
+        
+        <TextBlock Grid.Row="7"
+                   Grid.Column="2"
+                   Background="Black"
+                   Foreground="Green"
+                   FontSize="44"
+                   FontWeight="Bold"
+                   Text="Eticheta 1"/>
+        
+        <TextBlock Grid.Row="7"
+                   Grid.Column="2"
+                   Background="Black"
+                   Foreground="Green"
+                   FontSize="44"
+                   FontWeight="Bold"
+                   Text="Eticheta 2"
+                Margin="300,0,0,0"/>
+
+        <!--PrintCopies-->
+        <TextBlock Grid.Row="8"
+                   Grid.Column="1"
+                   Background="Black"
+                   Foreground="Green"
+                   FontSize="44"
+                   FontWeight="Bold"
+                   Text="Copii Etichete"
+                   VerticalAlignment="Center"/>
+        
+        <Border Grid.Row="8"
+                Grid.Column="2"
+                BorderBrush="Blue"
+                BorderThickness="3,1.5,3,1.5"
+                Margin="0,0,1100,0">
+            <TextBox Text="{Binding LabelsCopies, UpdateSourceTrigger=PropertyChanged}"
+                     Background="Black"
+                     Foreground="LimeGreen"
+                     FontSize="50"
+                     MaxLength="1"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Center"
+                     BorderBrush="Black"
+                     BorderThickness="0"
+                     TextAlignment="Center"
+                     Margin="5,5,5,5"/>
+            <Border.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Border.Resources>
+        </Border>
+
+
+        <!--DefaultSettingsButton-->
+        <Button Grid.Row="9"
+                Grid.Column="0"
+                Click="DefaultButton_Click"
+                Content="Resetare"
+                Background="DarkRed"
+                FontSize="36"
+                Margin="40,0,0,60">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        
+        <!--BackToMainMenuButton-->
+        <Button Grid.Row="9"
+                Grid.Column="2"
+                Click="BacktoMenu_Click"
+                Content="Inapoi"
+                Background="DarkCyan"
+                FontSize="50"
+                Margin="800,0,160,60">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+
+    </Grid>
+
+
+
+</UserControl>
